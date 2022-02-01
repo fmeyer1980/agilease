@@ -1,0 +1,66 @@
+<section class="bg-light container-wrapper flex flex-wrap gap-gutter">
+    <div class="basis-[50%] flex-grow-9 pt-lg pb-900 space-y-600">
+        <div class="space-y-200">
+            <h1 class="text-900">{{ car.Make }} {{ car.Model }}</h1>
+            <p class="text-500 opacity-70">{{ car.Variant }}</p>
+        </div>
+        <ul class="cluster gap-100">
+            <li class="flex flex-col py-[.5em] px-[1em] bg-light-glare leading-tight border border-dashed border-dark/20 ring-[3px] ring-light-glare">
+                <small class="opacity-70">Type</small>
+                <strong>{{ car.Type }}</strong>
+            </li>
+            <li class="flex flex-col py-[.5em] px-[1em] bg-light-glare leading-tight border border-dashed border-dark/20 ring-[3px] ring-light-glare">
+                <small class="opacity-70">Brændstof</small>
+                <strong>{{ car.Propellant }}</strong>
+            </li>
+            <li class="flex flex-col py-[.5em] px-[1em] bg-light-glare leading-tight border border-dashed border-dark/20 ring-[3px] ring-light-glare">
+                <small class="opacity-70">Km</small>
+                <strong>{{ car.Mileage }}</strong>
+            </li>
+            <li class="flex flex-col py-[.5em] px-[1em] bg-light-glare leading-tight border border-dashed border-dark/20 ring-[3px] ring-light-glare">
+                <small class="opacity-70">Modelår</small>
+                <strong>{{ car.Year }}</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="basis-[28rem] flex-grow -mb-lg self-end z-20">
+        <div class="flex items-center justify-center gap-400 text-sm pb-200">
+            <a class="flex items-center space-x-[.8em] text-dark-shade/70" href="">{{ '/src/_includes/partials/svg/print.svg' | svgContents("stroke-current h-[1.2em]") | safe }}<span>Udskriv</span></a>
+            <hr class="h-[1em] w-px border-l border-dashed border-dark-shade/20" />
+            <a class="flex items-center space-x-[.8em] text-sm text-dark-shade/70" href="">{{ '/src/_includes/partials/svg/mail.svg' | svgContents("stroke-current h-[1em]") | safe }}<span>Del på mail</span></a>
+            <hr class="h-[1em] w-px border-l border-dashed border-dark-shade/20" />
+            <a class="flex items-center space-x-[.8em] text-sm text-dark-shade/70" href="">{{ '/src/_includes/partials/svg/share-facebook.svg' | svgContents("stroke-current h-[1.4em]") | safe }}<span>Del på facebook</span></a>
+        </div>
+        <div class="bg-primary text-light-glare border-large border-light flex flex-col space-y-200 p-700">
+            <span class="h1">{{ car.Price }} pr./md</span>
+            <ul>
+                <li class="border-t border-dashed border-white/30 py-2 space-x-2">
+                    <span class="opacity-70">Førstegangsydelse:</span><strong>{{ car.LeasingDownPayment }}</strong>
+                </li>
+                <li class="border-t border-dashed border-white/30 py-2 space-x-2">
+                    <span class="opacity-70">Restværdi:</span><strong>{{ car.LeasingResidualValue }}</strong>
+                </li>
+            </ul>
+            <button class="bg-light-glare text-100 text-primary flex items-center font-bold justify-center space-x-2 py-[.8em] leading-none ring-1 ring-light-glare border border-primary">{{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] mt-[.1em]") | safe }}<span>Jeg er interesseret</span></button>
+            <a class="text-100 text-light-glare flex items-center font-bold justify-center space-x-2 py-[.8em] leading-none border border-dashed border-light-glare" href="">{{ '/src/_includes/partials/svg/phone.svg' | svgContents("fill-current h-[.9em] mt-[.1em]") | safe }}<span>Ring på 86 99 99 99</span></a>
+        </div>
+    </div>
+</section>
+<section class="relative px-gutter before:bg-light before:h-1/2 before:w-full before:absolute before:top-0 before:left-0 before:z-[-10]">
+    <div class="relative after:bg-primary/20 after:absolute after:inset-0 after:mix-blend-color before:bg-dark-shade/20 before:absolute before:inset-0 before:z-10">
+        <picture>
+            <source srcset="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_480,h_480/{{ site.claudinaryFolder }}{{ car.MainImage }}" media="(max-width: 480px)">
+            <source srcset="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_768,h_400/{{ site.claudinaryFolder }}{{ car.MainImage }}" media="(max-width: 768px)">
+            <img class="w-full object-cover" width="1400" height="650" loading="lazy" class="image-responsive" srcset="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_1400,h_650/{{ site.claudinaryFolder }}{{ car.MainImage }}" alt="{{ altText }}">
+        </picture>
+    </div>
+    <div class="custom-left">
+        
+        <button class="relative z-50 text-light-glare flex items-center text-400 space-x-[1.5em] ">
+            <span class="bg-primary w-[3.2em] h-[3.2em] grid place-items-center rounded-full before:absolute before:w-[4em] before:h-[4em] before:top-[-.4em] before:left-[-.4em] before:border before:border-dashed before:border-light-glare before:rounded-full">
+                {{ '/src/_includes/partials/svg/play.svg' | svgContents("stroke-current h-400 ml-[.2em]") | safe }}
+            </span>
+            <span class="font-bold">Afspil video</span>
+        </button>
+    </div>
+</section>

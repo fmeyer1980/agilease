@@ -1,0 +1,3 @@
+.flow > * + * {
+  margin-top: var(--space, 1em) !important;
+}

@@ -1,0 +1,23 @@
+{
+    "name": "Agilease",
+    "phone": "86 999 999",
+    "address": "Lundborgvej 10",
+    "zip": "8800 Viborg",
+    "country": "Denmark",
+    "socialmedia": [
+        {
+            "name": "facebook",
+            "url": "/"
+        },
+        {
+            "name": "linkedin",
+            "url": "/"
+        },
+        {
+            "name": "instagram",
+            "url": "/"
+        }
+    ],
+    "claudinaryUrl": "https://res.cloudinary.com/fmeyer1980/image/upload/",
+    "claudinaryFolder": "/v1643577972/agilease/"
+}

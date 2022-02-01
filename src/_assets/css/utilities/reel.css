@@ -1,0 +1,24 @@
+.reel {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.reel::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.reel::-webkit-scrollbar-thumb {
+  @apply bg-primary;
+}
+
+.reel > * {
+  flex-shrink: 0;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+
+.reel::-webkit-scrollbar-track{
+  @apply bg-light
+}

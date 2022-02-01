@@ -1,0 +1,17 @@
+<footer class="container-wrapper bg-dark text-light-glare/70 py-900 text-sm">
+  <div class="space-y-400">
+      <a href="/" aria-label="Gå til forside">
+          {{ '/src/_includes/partials/svg/logo.svg' | svgContents("fill-current h-200") | safe }}
+      </a>
+      <div>
+        <p>{{ site.address }}</p>
+        <p>{{ site.zip }}</p>
+        <p>{{ site.country }}</p>
+      </div>
+      <ul class="flex space-x-2">
+        {% for item in site.socialmedia %}
+          <li><a class="w-600 h-600 border border-dashed border-light-glare/20 grid place-items-center hover:bg-primary hover:text-light-glare hover:border-0 transition-colors divide-purple-300" href="{{ item.url }}">{{ ("/src/_includes/partials/svg/" + item.name +".svg") | svgContents("fill-current h-100") | safe }}</a></li>
+        {% endfor %}
+      </ul>
+  </div>
+</footer>

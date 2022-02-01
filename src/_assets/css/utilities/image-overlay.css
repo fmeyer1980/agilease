@@ -1,0 +1,17 @@
+.image-overlay {
+  position: relative;
+  @apply before:absolute before:inset-0 before:border before:border-dashed before:border-white/30 before:m-100 before:z-20 before:outline-[1px] before:outline-dashed before:outline-black/30
+}
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  mix-blend-mode: color;
+  @apply bg-primary;
+  opacity: .2;
+}

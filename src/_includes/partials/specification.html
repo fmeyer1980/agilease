@@ -1,0 +1,99 @@
+<section class="bg-light container-wrapper py-900 space-y-900">
+    <div>
+        <div class="space-y-300">
+            <h2>Specifikationer</h2>
+            <p class="text-400 measure-40 leading-tight">t is a long established fact that a reader will be distracted by the readable content of a page.</p>
+        </div>
+        <ul class="grid grid-cols-1 gap-gutter mt-800 [ md:grid-cols-3 ]">
+            <li class="spec--large">
+                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
+                <small class="text-[.5em]">motor</small>
+                <b class="font-extrabold text-primary leading-flat">{{ car.Motor }}</b>
+            </li>
+            <li class="spec--large">
+                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
+                <small class="text-[.5em]">Hk</small>
+                <b class="font-extrabold text-primary leading-flat">{{ car.Effect }}</b>
+            </li>
+            <li class="spec--large">
+                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
+                <small class="text-[.5em]">Top hastighed</small>
+                <b class="font-extrabold text-primary leading-flat">{{ car.TopSpeed }}</b>
+            </li>
+        </ul>
+        <ul class="cluster gap-100 mt-200">
+            {% for item in car.Specifications %}
+                <li>{{ item.item }}</li>
+            {% endfor %}
+            {% if car.MotorVolume %}
+                <li class="spec--small">
+                    <small class="text-[.65em] opacity-50">Volume</small>
+                    <b class="leading-flat">{{ car.MotorVolume }}</b>
+                </li>
+            {% endif %}
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Cylindere</small>
+                <b class="leading-flat">{{ car.Cylinders }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Ventiler</small>
+                <b class="leading-flat">{{ car.ValvesPerCylinder }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Brændstof</small>
+                <b class="leading-flat">{{ car.Propellant }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Gear type</small>
+                <b class="leading-flat">{{ car.GearType }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Antal gear</small>
+                <b class="leading-flat">{{ car.NumberOfGears }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Antal Airbags</small>
+                <b class="leading-flat">{{ car.NumberOfAirbags }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Vægt</small>
+                <b class="leading-flat">{{ car.Weight }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Totalvægt</small>
+                <b class="leading-flat">{{ car.TotalWeight }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Antal Airbags</small>
+                <b class="leading-flat">{{ car.NumberOfAirbags }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Længde</small>
+                <b class="leading-flat">{{ car.Length }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Bredde</small>
+                <b class="leading-flat">{{ car.Width }}</b>
+            </li>
+            <li class="spec--small">
+                <small class="text-[.65em] opacity-50">Højde</small>
+                <b class="leading-flat">{{ car.Height }}</b>
+            </li>
+        </ul>
+    </div>
+    <hr class="border-t-0 border-b border-dashed border-dark-shade/20">
+   <div class="space-y-800">
+        <div class="space-y-300">
+            <h2>Udstyrsliste</h2>
+            <p class="text-400 measure-40 leading-tight">There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+        </div>
+        <ul class="auto-grid auto-grid-lg gap-300">
+    
+            {% for item in car.EquipmentList | slice(12) %}
+                <li class="bg-light-glare border border-dashed border-dark-shade/20 m-[3px] ring-[3px] ring-light-glare py-[.5em] px-[1em] flex items-center space-x-[.8em]">
+                    {{ '/src/_includes/partials/svg/checkmark.svg' | svgContents("text-primary fill-current h-[1em]") | safe }}<span>{{ item | first }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+   </div>
+</section>

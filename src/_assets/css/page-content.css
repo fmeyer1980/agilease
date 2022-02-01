@@ -1,0 +1,90 @@
+/* .page-content {
+    @apply text-base;
+}
+
+.page-content h2{
+@apply font-bold;
+font-size: var(--size-600);
+}
+
+.page-content h3{
+@apply font-bold;
+font-size: var(--size-500);
+}
+
+.page-content a{
+text-decoration: underline;
+}
+
+.page-content ol,ul{
+padding-left: var(--size-600);
+}
+
+.page-content li + li{
+margin-top: var(--size-600);
+}
+
+.page-content h2,h3{
+@apply space-y-6;
+}
+
+.page-content h2 + *,h3 + *{
+@apply space-y-12;
+} */
+
+.page-content {
+  @apply measure-70 leading-loose;
+}
+
+.page-content blockquote {
+  @apply border-l-4 border-primary-500 pl-400 pt-1 pb-1 italic font-bold;
+}
+
+.page-content a {
+  @apply text-primary-500 border-b-2 border-current font-bold font-heading leading-flat;
+}
+
+.page-content h2 {
+  @apply text-300;
+}
+
+.page-content p {
+  @apply text-secondary-900/70
+}
+
+.page-content h3 {
+  @apply text-200;
+}
+
+.page-content ol,
+.page-content ul {
+  @apply pl-400;
+  list-style: square;
+}
+
+/* p > a{
+  --space: var(--size-700);
+} */
+
+/* a ~ p{
+  --space: var(--size-700);
+  display: none;
+} */
+
+.page-content li + li {
+  @apply mt-2;
+}
+
+.page-content h2,
+.page-content h3 {
+  --space: 2em;
+}
+
+.page-content h2 + *,
+.page-content h3 + * {
+  --space: 1.5em;
+}
+
+img{
+  --space: var(--size-300);
+}

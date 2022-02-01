@@ -1,0 +1,24 @@
+.btn {
+    @apply inline-flex items-center justify-center transition-all duration-300 ease-in-out font-bold gap-em-0.4;
+    padding: 0.7em 2.4em;
+  }
+  
+  .btn[data-type="primary"]{
+    @apply text-dark-shade bg-primary;
+    position: relative;
+    border-radius: 2px;
+  }
+
+
+  .btn[data-type="primary"]::after{
+    content: "";
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    background-color: transparent;
+    border: 2px solid;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    border-radius: 4px;
+    @apply border-primary;
+  }

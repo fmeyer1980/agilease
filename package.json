@@ -1,0 +1,31 @@
+{
+  "name": "attityde-opgave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx eleventy --serve & postcss src/_assets/css/tailwind.css --o src/_includes/css/style.css --watch",
+    "production": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/_assets/css/tailwind.css --o src/_includes/css/style.css",
+    "webpack": "webpack-cli src/_assets/js/index.js -o src/_assets/js/main.js --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "alpinejs": "^3.8.1",
+    "autoprefixer": "^10.4.2",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.0.2",
+    "simple-lightbox": "^2.1.0",
+    "tailwindcss": "^3.0.18"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

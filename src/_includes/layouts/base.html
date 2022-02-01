@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="da">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<style>{% include "css/style.css" %}</style>
+	</head>
+	<body class="bg-light-glare text-dark-shade">
+		{% include 'partials/site-head.html' %}
+		<main class="">
+			{% block content %}{% endblock %}
+		</main>
+		{% include 'partials/site-foot.html' %}
+		<script src="/js/main.js" defer></script>
+	</body>
+</html>
