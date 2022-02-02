@@ -29,11 +29,11 @@ body{
 }
 
 .spec--small{
-    @apply bg-light-glare text-400 py-[.5em] px-[1em] flex flex-col border border-dashed border-dark-shade/20 m-[3px] ring-[3px] ring-light-glare
+    @apply bg-light-glare text-400 py-[.6em] px-[1em] flex flex-col border border-dashed border-dark-shade/20 m-[3px] ring-[3px] ring-light-glare
 }
 
 .spec--large{
-    @apply bg-light-glare p-700 border border-dashed border-dark-shade/20 ring ring-[15px] ring-light-glare m-[15px] text-center text-700 flex flex-col
+    @apply bg-light-glare p-900 border border-dashed border-dark-shade/20 ring-[15px] ring-light-glare m-[15px] text-800 flex flex-col
 }
 
 .custom-left{

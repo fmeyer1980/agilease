@@ -5,20 +5,29 @@
             <p class="text-400 measure-40 leading-tight">t is a long established fact that a reader will be distracted by the readable content of a page.</p>
         </div>
         <ul class="grid grid-cols-1 gap-gutter mt-800 [ md:grid-cols-3 ]">
-            <li class="spec--large">
-                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
-                <small class="text-[.5em]">motor</small>
-                <b class="font-extrabold text-primary leading-flat">{{ car.Motor }}</b>
+            <li class="spec--large space-y-400">
+                {{ '/src/_includes/partials/svg/spec-1.svg' | svgContents("h-full md:h-xl") | safe }}
+                <div class="flex flex-wrap items-end justify-center text-center gap-2">
+                    <b class="font-extrabold text-primary leading-flat">{{ car.Motor }}</b>
+                    <small class="text-[.5em] mb-[.1em]">motor</small>
+                    <p class="text-[.35em] opacity-50 basis-[100%] leading-tight">Hybrid motor</p>
+                </div>
             </li>
-            <li class="spec--large">
-                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
-                <small class="text-[.5em]">Hk</small>
-                <b class="font-extrabold text-primary leading-flat">{{ car.Effect }}</b>
+            <li class="spec--large space-y-400">
+                {{ '/src/_includes/partials/svg/spec-2.svg' | svgContents("h-full md:h-xl") | safe }}
+                <div class="flex flex-wrap items-end justify-center text-center gap-2">
+                    <b class="font-extrabold text-primary leading-flat">{{ car.ValvesPerCylinder }}</b>
+                    <small class="text-[.5em] mb-[.1em]">Ventiler</small>
+                    <p class="text-[.35em] opacity-50 basis-[100%] leading-tight">Mere motor effekt</p>
+                </div>
             </li>
-            <li class="spec--large">
-                {{ '/src/_includes/partials/svg/test-icon.svg' | svgContents("w-full") | safe }}
-                <small class="text-[.5em]">Top hastighed</small>
-                <b class="font-extrabold text-primary leading-flat">{{ car.TopSpeed }}</b>
+            <li class="spec--large space-y-400">
+                {{ '/src/_includes/partials/svg/spec-3.svg' | svgContents("h-full md:h-xl") | safe }}
+                <div class="flex flex-wrap items-end justify-center text-center gap-2">
+                    <b class="font-extrabold text-primary leading-flat">{{ car.Cylinders }}</b>
+                    <small class="text-[.5em] mb-[.1em]">Cylindere</small>
+                    <p class="text-[.35em] opacity-50 basis-[100%] leading-tight">Mindre CO2 udledning</p>
+                </div>
             </li>
         </ul>
         <ul class="cluster gap-100 mt-200">
@@ -32,12 +41,12 @@
                 </li>
             {% endif %}
             <li class="spec--small">
-                <small class="text-[.65em] opacity-50">Cylindere</small>
-                <b class="leading-flat">{{ car.Cylinders }}</b>
+                <small class="text-[.65em] opacity-50">Top hastighed</small>
+                <b class="leading-flat">{{ car.TopSpeed }}</b>
             </li>
             <li class="spec--small">
-                <small class="text-[.65em] opacity-50">Ventiler</small>
-                <b class="leading-flat">{{ car.ValvesPerCylinder }}</b>
+                <small class="text-[.65em] opacity-50">Hk</small>
+                <b class="leading-flat">{{ car.Effect }}</b>
             </li>
             <li class="spec--small">
                 <small class="text-[.65em] opacity-50">Brændstof</small>
