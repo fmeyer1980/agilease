@@ -1,0 +1,12 @@
+<section class="container-wrapper py-900 space-y-900">
+    <h2>Se flere billeder</h2>
+    <div class="gallery grid grid-cols-2 gap-gutter md:grid-cols-3">
+        {% for item in car.Pictures | slice(12)  %}
+        {% if loop.index0 > 5 %} 
+            <a class="image-overlay" href="{{ item | first }}">
+                <img class="aspect-3/2 w-full object-cover md:h-full md:aspect-auto"  src="{{ item | first }}" alt="">
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

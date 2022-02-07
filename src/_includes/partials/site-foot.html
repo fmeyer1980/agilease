@@ -1,17 +1,82 @@
-<footer class="container-wrapper bg-dark text-light-glare/70 py-900 text-sm">
-  <div class="space-y-400">
-      <a href="/" aria-label="Gå til forside">
-          {{ '/src/_includes/partials/svg/logo.svg' | svgContents("fill-current h-200") | safe }}
-      </a>
-      <div>
-        <p>{{ site.address }}</p>
-        <p>{{ site.zip }}</p>
-        <p>{{ site.country }}</p>
+<footer class="container-wrapper bg-dark-shade text-light-glare/70  text-sm">
+  <div class="py-lg flex flex-col gap-900 md:flex-row md:justify-between">
+    <div class="space-y-400 basis-1">
+        <a href="/" aria-label="Gå til forside">
+            {{ '/src/_includes/partials/svg/logo.svg' | svgContents("fill-current h-200") | safe }}
+        </a>
+        <div>
+          <p>{{ site.address }}</p>
+          <p>{{ site.zip }}</p>
+          <p>{{ site.country }}</p>
+        </div>
+        <div class="flex flex-wrap gap-900 md:gap-400">
+          <div class="space-y-1">
+            <p class="text-light-glare font-bold mb-100 whitespace-nowrap">Åbningstider Agilease A/S</p>
+            <div class="flex items-center justify-between">
+              <span class="basis-[50%] whitespace-nowrap">Man - fre: </span>
+              <span class="basis-[50%] whitespace-nowrap">08:00 - 18:00</span>
+            </div>
+            <div class="flex items-center">
+              <span class="basis-[50%] whitespace-nowrap">Lør - søn: </span>
+              <span class="basis-[50%] whitespace-nowrap">10:00 - 15:00</span>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <p class="text-light-glare font-bold mb-100 whitespace-nowrap">Åbningstider værksted</p>
+            <div class="flex items-center justify-between">
+              <span class="basis-[50%] whitespace-nowrap">Man - fre: </span>
+              <span class="basis-[50%] whitespace-nowrap">07:30 - 16:00</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="basis-[50%] whitespace-nowrap">Lør - søn: </span>
+              <span class="basis-[50%] whitespace-nowrap">Efter aftale</span>
+            </div>
+          </div>
+        </div>
+        <ul class="flex space-x-2">
+          {% for item in site.socialmedia %}
+            <li><a class="w-700 h-700 border border-dashed border-light-glare/20 grid place-items-center hover:bg-primary hover:text-light-glare hover:border-0 transition-colors divide-purple-300" href="{{ item.url }}">{{ ("/src/_includes/partials/svg/" + item.name +".svg") | svgContents("fill-current h-100") | safe }}</a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    <hr class="h-px w-auto border-l border-dashed border-light-glare/20 md:h-auto md:w-px">
+    <div class="space-y-400">
+      <p class="h5 text-light-glare">Det kan vi hjælpe med</p>
+      <nav aria-label="Footer navigaton">
+        <ul class=" divide-y divide-dashed divide-light-glare/20">
+            {% for item in navigation.items %}
+                <li class="py-[1em] flex">
+                  <a class="text-light-glare hover:text-primary flex space-x-400 grow items-center justify-between" href="{{ item.url }}">
+                    <span>{{ item.title }}</span>
+                    {{ '/src/_includes/partials/svg/small-arrow.svg' | svgContents("fill-current stroke-dark h-[.8em]") | safe }}
+                  </a>
+                </li>
+          {% endfor %}
+          </ul>
+    </nav>
+    </div>
+    <hr class="h-px w-auto border-l border-dashed border-light-glare/20 md:h-auto md:w-px">
+    <div class="flex flex-wrap items-start gap-600">
+      <div class="space-y-100">
+        <p>Personlig vejledning</p>
+        <p class="text-light-glare h5">Brug for hjælp?</p>
+        <p class="measure-25">Vi sidder altid klar til at hjælpe dig. Få personlig vejledning igennem vores chat.</p>
+        <a class="flex self-start items-center space-x-[.8em] font-heading font-bold text-200 group" href="">
+            <span class="flex items-center justify-center bg-primary text-light-glare w-[2.1em] h-[2.1em] rounded-full border-2 border-dark-shade outline-1 outline-dashed outline-light-glare/20 overflow-hidden">
+                {{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] transform -translate-x-[150%] shrink-0 group-hover:translate-x-[50%] group-hover:delay-150 transition-transform duration-200 ease-in-out") | safe }}
+                {{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] transform -translate-x-[50%] shrink-0 group-hover:translate-x-[100%] group-hover:delay-[0ms] delay-150 transition-transform duration-200 ease-in-out") | safe }}
+            </span>
+            <span class="group-hover:text-primary text-light-glare transition-colors duration-200 ease-in-out">Chat med Nikolaj</span>
+        </a>
+        <a class="text-light-glare underline font-bold inline-block" href="">Kontakt en leasingkonsulent</a>
       </div>
-      <ul class="flex space-x-2">
-        {% for item in site.socialmedia %}
-          <li><a class="w-600 h-600 border border-dashed border-light-glare/20 grid place-items-center hover:bg-primary hover:text-light-glare hover:border-0 transition-colors divide-purple-300" href="{{ item.url }}">{{ ("/src/_includes/partials/svg/" + item.name +".svg") | svgContents("fill-current h-100") | safe }}</a></li>
-        {% endfor %}
-      </ul>
+      <img loading="lazy" src="/images/chat-image.jpg" alt="Chat med Nikolaj">
+    </div>
+  </div>
+  <div class="full-bleed bg-dark text-light-glare py-500">
+    <div class="container-wrapper flex flex-wrap gap-100 items-center justify-between ">
+        <span class="opacity-50">Copyright © 2022 Agilease. All rights reserved.</span>
+        <img loading="lazy" src="/images/gazelle.png" alt="Gazelle">
+    </div>
   </div>
 </footer>

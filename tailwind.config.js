@@ -54,11 +54,15 @@ module.exports = {
             borderWidth: {
                 'small': '3px',
                 'large': 'var(--size-200)',
+                'gutter': 'var(--gutter)'
             },
             aspectRatio: { 
+                '1/1': '1 / 1',
                 '3/1': '3 / 1',
                 '3/2': '3 / 2',
                 '5/2': '5 / 2',
+                '5/3': '5 / 3',
+                '16/8': '16 / 8',
             },
             colors: {
                 'primary': '#F24210',

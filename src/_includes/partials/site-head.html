@@ -1,13 +1,17 @@
-<header class="bg-white py-600 container-wrapper flex flex-wrap gap-x-[2.2em] text-100 items-center">
+<header class="bg-white py-600 container-wrapper flex flex-wrap gap-[1em] md:gap-x-[2.2em] text-100 items-center" x-data="{ mobilNav: false }">
     <a href="/" aria-label="Gå til forside">
         {{ '/src/_includes/partials/svg/logo.svg' | svgContents("fill-current h-400") | safe }}
     </a>
-    <nav class="ml-auto">
+    <nav class="ml-auto hidden md:block" aria-label="Primary navigaton">
         <ul class="flex flex-wrap gap-x-[2.2em]">
             {% for item in navigation.items %}
                 <li><a class="font-bold hover:text-primary" href="{{ item.url }}">{{ item.title }}</a></li>
           {% endfor %}
           </ul>
     </nav>
-    <a class="w-[3em] h-[3em] border border-dashed border-primary rounded-full grid place-items-center text-primary hover:bg-primary hover:text-light-glare transition-colors duration-300" href="tel:{{ site.phone }}">{{ '/src/_includes/partials/svg/phone.svg' | svgContents("stroke-current h-400") | safe }}</a>
+    <a class="w-[3em] h-[3em] ml-auto md:ml-0 border border-dashed border-primary rounded-full grid place-items-center text-primary hover:bg-primary hover:text-light-glare transition-colors duration-300" href="tel:{{ site.phone }}">{{ '/src/_includes/partials/svg/phone.svg' | svgContents("stroke-current h-400") | safe }}</a>
+    <button class="w-[3em] h-[3em] border border-dashed border-primary rounded-full grid place-items-center text-primary hover:bg-primary hover:text-light-glare transition-colors duration-300 [ lg:hidden ] " @click=" mobilNav = !mobilNav">
+        {{ '/src/_includes/partials/svg/menu-icon.svg' | svgContents("fill-current h-200") | safe }}
+    </button>
+    {% include 'partials/mobil-nav.html' %}
 </header>

@@ -5,7 +5,8 @@
   --container-width: 75rem;
   --container-padding: var(--gutter);
 
-  --container-padding: calc((100vw - var(--container-width)) / 2);
+  --container-padding: calc(((100vw - var(--container-width)) / 2) - var(--gutter));
+
 
   --fluid-min-width: 320;
   --fluid-max-width: 1200;

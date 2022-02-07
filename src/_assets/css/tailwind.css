@@ -14,6 +14,7 @@
 @import './utilities/cluster';
 @import './utilities/switcher';
 @import './utilities/full-bleed';
+@import './utilities/flow';
 
 @import "tailwindcss/utilities";
 
@@ -28,8 +29,12 @@ body{
     text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
+a:not([class]) {
+  @apply underline font-bold;
+}
+
 .spec--small{
-    @apply bg-light-glare text-400 py-[.6em] px-[1em] flex flex-col border border-dashed border-dark-shade/20 m-[3px] ring-[3px] ring-light-glare
+    @apply bg-light-glare text-400 py-[.6em] px-[1em] flex flex-col border border-dashed border-dark-shade/20 m-[3px] ring-[3px] ring-light-glare grow md:grow-0
 }
 
 .spec--large{
@@ -38,12 +43,63 @@ body{
 
 .custom-left{
     position: absolute;
-    padding-left: calc(((100% - var(--container-width)) / 2));
-    left: 0;
-    /* padding-left: var(--container-padding); */
-    bottom: calc(var(--size-xl) + var(--size-600)) !important;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
 }
 
+@keyframes videoBorderAni {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
+.video-button span::before{
+  animation: videoBorderAni 8s infinite linear;
+}
+
+@media only screen and (min-width: 1024px) {
+  .custom-left{
+    padding-right: calc(((100% - var(--container-width)) / 2));
+    top: auto;
+    right: 0;
+    transform: translateX(15%);
+    bottom: var(--size-800)
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  
+
+  .gallery{
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .gallery a:nth-child(1), .gallery a:nth-child(5){
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .gallery a:nth-child(2), .gallery a:nth-child(6){
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .gallery a:nth-child(3){
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .gallery a:nth-child(4){
+    grid-row-start: 2;
+    grid-row-end: 4;
+  }
+}
 
 .slbElement {
     position: fixed;
@@ -60,7 +116,7 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    @apply bg-dark-shade bg-opacity-90;
+    @apply bg-black/90;
   }
   .slbElement .slbWrapOuter {
     position: relative;
@@ -105,13 +161,13 @@ body{
     margin-left: 1rem;
   }
   .slbElement .slbWrapOuter .slbWrap .slbContentOuter .slbArrows button {
-    @apply bg-primary text-dark-shade py-4 px-8;
+    @apply bg-primary text-light-glare py-4 px-8;
     width: auto;
     line-height: 100%;
   }
   .slbElement .slbWrapOuter .slbWrap .slbContentOuter .slbCloseBtn {
 
-    @apply -top-6 -right-6 border-2 border-dark-shade w-14 h-14 text-3xl text-dark-shade bg-primary;
+    @apply -top-6 -right-6 border-2 border-dark-shade w-14 h-14 text-3xl text-light-glare bg-primary;
     position: absolute;
     border-radius: 50%;
     display: flex;
@@ -121,7 +177,7 @@ body{
   }
 
   .slbImage{
-      width: 100%;
+      @apply aspect-3/2 w-full object-cover;
   }
 
 [x-cloak] {
@@ -151,6 +207,9 @@ body{
     .measure-20 {
     max-width: 20ch;
     }
+    .measure-25 {
+      max-width: 25ch;
+      }
     .measure-30 {
     max-width: 30ch;
     }

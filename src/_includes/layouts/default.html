@@ -1,46 +1,51 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 {% include 'partials/intro.html' %}
-<section class="relative grid grid-cols-2 z-50 pb-900 gap-900">
-    <div class="relative pl-container pt-900 space-y-800 flex flex-col -mt-xl bg-light-glare after:bg-light-glare after:w-900 after:h-xl after:top-0 after:-right-900 after:absolute">
+<section class="relative container-wrapper grid grid-cols-1 z-50 gap-700 pb-900 md:gap-900 md:grid-cols-2 md:border-x-0 md:px-0">
+    <div class="relative md:pl-container md:border-l-gutter md:border-transparent pt-900 space-y-800 flex flex-col bg-light-glare md:after:bg-light-glare md:after:w-900 md:after:h-xl md:after:top-0 md:after:-right-900 md:after:absolute md:-mt-xl">
         <div class="space-y-500">
-            <h2 class=" max-w-[18ch]">{{ car.customContentOne.Headline }}</h2>
+            <h2 class=" max-w-[18ch]">Lad din barndomsdrøm gå i opfyldese!</h2>
             <p class="text-400 opacity-80 measure-35">Kraftfuld og smidig - F-TYPE er en ægte Jaguar-sportsvogn og det seneste skud på et ædelt stamtræ. Med <strong>380 hestekræfter</strong> og en <strong>sublim 8 trins gearkasse</strong> og <strong>4-hjulstræk</strong>, kan du køre bilen hele året hvis du ønsker det.</p>
         </div>
         <div class="image-overlay flex-grow">
-            <img class="image-responsive object-cover h-full" src="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_800,h_800/{{ site.claudinaryFolder }}s-l1600_euff4b" alt="Alt tekst">
+            <img class="object-cover h-full w-full" src="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_800,h_800/{{ site.claudinaryFolder }}s-l1600_euff4b" alt="Alt tekst">
         </div>
         
     </div>
-    <div class="space-y-800 flex flex-col pt-900 pr-container">
+    <div class="space-y-800 flex flex-col md:pt-900 md:pr-container md:border-r-gutter md:border-transparent">
         <div class="image-overlay">
-            <img class="image-responsive flex-grow" src="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_600,h_600/{{ site.claudinaryFolder }}s-l1600_px7ita" alt="Alt tekst">
+            <img class="flex-grow w-full object-cover" src="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_600,h_600/{{ site.claudinaryFolder }}s-l1600_px7ita" alt="Alt tekst">
         </div>
         <div class="space-y-500">
             <h2>Finansiel leasing</h2>
-            <p class="text-400 opacity-80 measure-35">Du betaler en førstegangsydelse samt etableringsgebyr ved indgåelse af aftalen, og herefter ydes en månedlig ydelse.</p>
-            <a class="flex self-start items-center space-x-[.8em] font-heading font-bold text-200" href=""><span class="bg-primary text-light-glare w-[2.1em] h-[2.1em] grid place-items-center rounded-full border-2 border-light-glare outline-1 outline-dashed outline-dark-shade/20">{{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em]") | safe }}</span><span>Læs mere om leasing</span></a>
+            <p class="text-400 opacity-80 measure-35 transform hover:translate-x-500 transition-transform delay-100 hover:delay-1000">Du betaler en førstegangsydelse samt etableringsgebyr ved indgåelse af aftalen, og herefter ydes en månedlig ydelse.</p>
+            <a class="flex self-start items-center space-x-[.8em] font-heading font-bold text-200 group" href="">
+                <span class="flex items-center justify-center bg-primary text-light-glare w-[2.1em] h-[2.1em] rounded-full border-2 border-light-glare outline-1 outline-dashed outline-dark-shade/20 overflow-hidden">
+                    {{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] transform -translate-x-[150%] shrink-0 group-hover:translate-x-[50%] group-hover:delay-150 transition-transform duration-200 ease-in-out") | safe }}
+                    {{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] transform -translate-x-[50%] shrink-0 group-hover:translate-x-[100%] group-hover:delay-[0ms] delay-150 transition-transform duration-200 ease-in-out") | safe }}
+                </span>
+                <span class="group-hover:text-primary transition-colors duration-200 ease-in-out">Læs mere om leasing</span>
+            </a>
         </div>
        
     </div>
 </section>
 {% include 'partials/specification.html' %}
-<section class="container-wrapper py-900 space-y-800">
-    <div>
-        <h2 class="measure-15">Se flere biler i samme kategori</h2>
-    </div>
+{% include 'partials/gallery.html' %}
+<section class="container-wrapper bg-light py-900 space-y-800">
+    <h2 class="measure-15">Se flere biler i samme kategori</h2>
     <div class="reel gap-gutter ">
             {% for item in cars %}
             <a href="/cars/{{ item.Make }}{{ item.Id }}/" class="flex flex-col space-y-300 mb-600 w-4/5 [ md:w-[45%] ] [ lg:w-[38%] ]">
                 <div class="image-overlay">
-                    <img class="image-responsive" src="{{ site.claudinaryUrl}}c_fill,f_auto,q_auto,w_600,h_600{{ site.claudinaryFolder }}{{ item.Pictures | first }}" alt="sd">
+                    <img class="aspect-3/2 object-cover w-full" src="{{ item.Pictures | first }}" alt="sd">
                 </div>
-                <div class="flex flex-wrap divide-x divide-dashed divide-dark-shade/20 gap-2">
+                <div class="flex flex-wrap gap-3">
                     <h3 class="text-500 leading-none">{{ item.Make }} {{ item.Model }}</h3>
-                    <strong class="text-500 leading-none text-primary pl-100">{{ item.Price }} pr./md</strong>
-                    <p class="basis-[100%] opacity-70">{{ car.Variant }}</p>
+                    <strong class="text-500 leading-none text-primary">{{ item.Price }} pr./md</strong>
+                    <p class="basis-[100%] opacity-70">{{ item.Variant }}</p>
                 </div>
-                <ul class="cluster gap-2 text-[11px] [ md:text-[13px] ]">
+                <ul class="cluster gap-[11px] text-[11px] ml-[3px] [ md:text-[13px] ]">
                     <li class="flex flex-col py-[.5em] px-[1em] bg-light-glare leading-tight border border-dashed border-dark/20 ring-[3px] ring-light-glare">
                         <small class="opacity-70">Type</small>
                         <strong>{{ item.Type }}</strong>
@@ -62,7 +67,7 @@
         {% endfor %}
     </div>
 </section>
-<section class="container-wrapper bg-white py-900 flex flex-col gap-800 md:flex-row">
+<section class="container-wrapper py-900 flex flex-col gap-800 md:flex-row">
 
     <div class="flex flex-grow [ md:basis-[25rem] ]">
         {{ '/src/_includes/partials/svg/trustpilot.svg' | svgContents("text-primary fill-current w-[20%] shrink-0 self-start md:w-xl") | safe }}
@@ -155,5 +160,8 @@
         </form>
     </div>
 </section>
-
+<div class="bg-primary-shade fixed space-y-200 items-center z-[100] bottom-0 right-0 p-400 text-light-glare transform -translate-y-[-100%] transition-all shadow-2xl" :class="{ 'translate-y-[0%]' : !scroleAtTop }" @scroll.window="scroleAtTop = (window.pageYOffset > 700) ? false : true">
+    <span class="h4">{{ car.Price }} pr./md</span>
+    <button class="bg-light-glare text-100 text-primary flex items-center font-bold justify-center px-300 space-x-2 py-[.7em] leading-none ring-1 ring-light-glare border border-primary">{{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] mt-[.1em]") | safe }}<span>Jeg er interesseret</span></button>
+</div>
 {% endblock %}
