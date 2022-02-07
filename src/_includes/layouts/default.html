@@ -160,7 +160,7 @@
         </form>
     </div>
 </section>
-<div class="bg-primary-shade fixed space-y-200 items-center z-[100] bottom-0 right-0 p-400 text-light-glare transform -translate-y-[-100%] transition-all shadow-2xl" :class="{ 'translate-y-[0%]' : !scroleAtTop }" @scroll.window="scroleAtTop = (window.pageYOffset > 700) ? false : true">
+<div class="bg-primary-shade fixed space-y-200 items-center z-[100] bottom-0 right-0 p-400 text-light-glare transform -translate-y-[-100%] transition-all shadow-2xl" :class="{ 'translate-y-[0%]' : !scroleAtTop }" @scroll.window="scroleAtTop = (window.pageYOffset > 1200) ? false : true">
     <span class="h4">{{ car.Price }} pr./md</span>
     <button class="bg-light-glare text-100 text-primary flex items-center font-bold justify-center px-300 space-x-2 py-[.7em] leading-none ring-1 ring-light-glare border border-primary">{{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current h-[.7em] mt-[.1em]") | safe }}<span>Jeg er interesseret</span></button>
 </div>
